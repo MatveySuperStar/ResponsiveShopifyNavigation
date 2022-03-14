@@ -12,7 +12,6 @@ const Navigation = () => {
   const [dataLength, setDataLenght] = useState(data?.length)
   const [activeBurgerMenu, setActiveBurgerMenu] = useState(false);
   const [widthElements, setWidthElements] = useState([])
-  const [widthSubmenu, setWidthSubmenu] = useState([])
   const leftNav = useRef()
   const rightNav = useRef()
   const [wrapperNavbar, wrapperWidth] = useElementWidth()
@@ -34,10 +33,10 @@ const Navigation = () => {
       if( item.position === position ) {
         return <Link 
           key={index} 
+          nav={nav}
           item={item} 
           ActiveSubmenu={ActiveSubmenu} 
-          setWidthElements={setWidthElements}
-          setWidthSubmenu={setWidthSubmenu}/> 
+          setWidthElements={setWidthElements}/> 
       }
     })
   }, nav)
@@ -54,13 +53,12 @@ const Navigation = () => {
 
   const Burger = useMemo(() => {
     if(nav.length != dataLength) {
-      const widthBurger = [...widthSubmenu, ...widthElements].reduce((a, b) => a > b ? a : b)
 
       return <BurgerMenu 
         nav={nav} 
         activeBurgerMenu={activeBurgerMenu} 
         ActiveSubmenu={ActiveSubmenu}
-        widthBurger={widthBurger}
+        widthElements={widthElements}
       /> 
     }
   }, nav)

@@ -1,15 +1,23 @@
-import React, {useMemo} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {Icon} from '@shopify/polaris';
 import style from './BurgerMenu.module.css'
 
-const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu, widthBurger}) => {
+const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu, widthElements}) => {
+
+  const [widthSubmenu, setWidthSubmenu] = useState(0);
+  
+  useEffect(() => {
+    setWidthSubmenu(widthElements.reduce((a, b) => a > b ? a : b));
+  }, [])
 
   const BurgerSubmenuLinks = (item) => {
     return (
       item.children.map( (subitem, index) => {
-        <li key={index}> 
-          <a><Icon source={subitem.icon}/> {subitem.label}</a>
-        </li>
+        return (
+          <li key={index} > 
+            <a><Icon source={subitem.icon}/> {subitem.label}</a>
+          </li>
+        )  
       })
     )  
   }
@@ -40,7 +48,7 @@ const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu, widthBurger}) => {
   return (
       <li className={activeBurgerMenu ? style.activeLink : ''} onClick={() => ActiveSubmenu()} >
         <a>more ...</a>
-        <ul style={{width: widthBurger}} className={`${style.burgerMenu} ${activeBurgerMenu ? style.active : style.noActive}`}> 
+        <ul style={{minWidth: widthSubmenu}} className={`${style.burgerMenu} ${activeBurgerMenu ? style.active : style.noActive}`}> 
           {BurgerLinks}
         </ul>
       </li>

@@ -8,7 +8,21 @@ export  const data = [
     exact: false,
     icon: HomeMajor,
     position: 'left',
-    visible: true  
+    visible: true,
+    children: [
+      {
+        label: "Glossary",
+        path: "/analytics",
+        exact: false,
+        icon: VocabularyMajor
+      },
+      {
+        label: "Agency translation",
+        path: "/analytics",
+        exact: false,
+        icon: VocabularyMajor
+      },
+    ]  
   }, 
   {
     label: "Translations",
@@ -25,6 +39,12 @@ export  const data = [
       },
       {
         label: "Agency translation",
+        path: "/analytics",
+        exact: false,
+        icon: VocabularyMajor
+      },
+      {
+        label: "Agency translationadasdadasdadas",
         path: "/analytics",
         exact: false,
         icon: VocabularyMajor

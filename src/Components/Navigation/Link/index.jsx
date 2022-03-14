@@ -2,17 +2,13 @@ import React, {useEffect, useMemo, useRef} from 'react'
 import {Icon} from '@shopify/polaris'
 import style from './Link.module.css'
 
-const Link = ({item, ActiveSubmenu, setWidthElements, setWidthSubmenu}) => {
+const Link = ({item, ActiveSubmenu, setWidthElements}) => {
   
   const link = useRef()
   const submenu = useRef()
 
   useEffect(()=>{ 
     setWidthElements(state => [...state, link.current.clientWidth])
-
-    if(submenu.current != undefined) {
-      setWidthSubmenu(state => [...state, submenu.current.clientWidth])
-    }
   },[])
   
   const SubmenuLinks = (item) => {

@@ -1,7 +1,7 @@
 .burgerMenu {
   right: 0;
   flex-direction: column;
-  margin-top: 2px ;
+  margin-top: 3px ;
   padding: 0px 0px;
   position: absolute;
   background-color: white;
@@ -9,24 +9,23 @@
   list-style: none; 
 }
 
-.burgerMenu > li{
-  cursor: pointer; 
-}
-
 .burgerMenu > li > a {
-  width: fit-content;
+  cursor: pointer; 
   display: flex;
   padding: 10px 5px;
   word-wrap:initial;
 }
 
+.burgerMenu > li:hover > a {
+  border-bottom: 3px solid green;
+  margin-bottom: -3px;
+}
+
 .submenu {
-  margin-top: 2px ;
+  margin-top: 3px;
   flex-direction: column;
   padding: 0px 0px;
-  position: absolute;
   background-color: white;
-  z-index: 10;
   list-style: none;
 }
 
@@ -35,14 +34,19 @@
 }
 
 .submenu > li > a {
-  width: fit-content;
+  width: 100%;
   display: flex;
   padding: 10px 5px;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.submenu > li:hover a{
+  border-bottom: 3px solid green;
+  margin-bottom: -3px;
 }
 
 .activeLink {
-  cursor: pointer;
   border-bottom: 3px solid green;
   margin-bottom: -3px;
 }

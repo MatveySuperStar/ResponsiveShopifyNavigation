@@ -9,10 +9,16 @@
 }
 
 .submenu > li > a {
-  width: fit-content;
+  width: 100%;
   display: flex;
   padding: 10px 5px;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+.submenu > li:hover {
+  border-bottom: 3px solid green;
+  margin-bottom: -3px;
 }
 
 .activeLink {
