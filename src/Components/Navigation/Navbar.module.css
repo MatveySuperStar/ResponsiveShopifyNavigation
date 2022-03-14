@@ -37,7 +37,6 @@
 .left > li > a, .right > li > a {
   display: flex;
   height: 100%;
-  width: fit-content;
   white-space: nowrap;
   align-items: center;
   padding: 0 20px;
@@ -45,11 +44,11 @@
   cursor: pointer;
 }
 
-.left > li > a > span, .right > li > a > span {
+.left span, .right span {
   margin: 0 5px 0 0;
 }
 
-.left > li:hover, .right > li:hover {
-  border-bottom: 1px solid green;
-  margin-bottom: -1px;
+.left  li:hover, .right  li:hover {
+  border-bottom: 3px solid green;
+  margin-bottom: -3px;
 }

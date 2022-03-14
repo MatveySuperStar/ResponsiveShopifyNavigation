@@ -9,7 +9,7 @@
   list-style: none; 
 }
 
-.burgerMenu>li{
+.burgerMenu > li{
   cursor: pointer; 
 }
 
@@ -18,15 +18,6 @@
   display: flex;
   padding: 10px 5px;
   word-wrap:initial;
-}
-
-.burgerMenu > li:hover {
-  border-bottom: 1px solid green;
-  margin-bottom: -1px;
-}
-
-.burgerMenu > li > a > span {
-  margin: 0 5px 0 0;
 }
 
 .submenu {
@@ -50,13 +41,10 @@
   white-space: nowrap;
 }
 
-.submenu > li:hover {
-  border-bottom: 1px solid green;
-  margin-bottom: -1px;
-}
-
-.submenu > li > a > span {
-  margin: 0 5px 0 0;
+.activeLink {
+  cursor: pointer;
+  border-bottom: 3px solid green;
+  margin-bottom: -3px;
 }
 
 .active {

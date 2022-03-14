@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react'
+import React, {useEffect, useMemo, useRef} from 'react'
 import {Icon} from '@shopify/polaris'
 import style from './Link.module.css'
 
-const Link = ({item, setWidthElements}) => {
+const Link = ({item, ActiveSubmenu, setWidthElements}) => {
   
   const width = useRef()
-  const [active, setActive] = useState(false);
 
   useEffect(()=>{ 
     setWidthElements(state => [...state, width.current.clientWidth])
@@ -20,21 +19,22 @@ const Link = ({item, setWidthElements}) => {
   }
 
   const Submenu = useMemo(() => {
+
     if(item.children) {   
       return (
-        <ul className={`${style.submenu} ${active ? style.active : style.noActive}`}>
+        <ul className={`${style.submenu} ${item.exact ? style.activeSubmenu : style.noActiveSubmenu}`}>
           {SubmenuLinks(item)}
         </ul>   
       )
     }
-  }, [active])
+  }, [item.exact])
 
   return (
-    <li ref={width} style={{display: item.visible ? 'block' : 'none'}} onClick={ item.children ? () => setActive(!active) : null}> 
+    <li ref={width} className={item.exact ? style.activeLink : ''} style={{display: item.visible ? 'block' : 'none'}} 
+    onClick={() => ActiveSubmenu(item)}> 
       <a> <Icon source={item.icon}/> {item.label}</a>
-        {Submenu}
-      </li>
-
+      {Submenu}
+    </li>
   );
 };
 

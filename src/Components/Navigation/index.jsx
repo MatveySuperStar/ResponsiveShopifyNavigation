@@ -9,11 +9,12 @@ import style from './Navbar.module.css'
 
 const Navigation = () => {
   const [nav, setNav] = useState(data)
+  const [dataLength, setDataLenght] = useState(data?.length)
+  const [activeBurgerMenu, setActiveBurgerMenu] = useState(false);
   const [widthElements, setWidthElements] = useState([])
   const leftNav = useRef()
   const rightNav = useRef()
   const [wrapperNavbar, wrapperWidth] = useElementWidth()
-  const [dataLength, setDataLenght] = useState(data.length)
 
   useEffect(() => {    
     const navBar = leftNav.current.clientWidth + rightNav.current.clientWidth;
@@ -30,14 +31,34 @@ const Navigation = () => {
   const Links = useCallback( position => {
     return nav.map( (item, index) => {
       if( item.position === position ) {
-        return <Link key={index} item={item} setWidthElements={setWidthElements}/> 
+        return <Link 
+          key={index} 
+          item={item} 
+          ActiveSubmenu={ActiveSubmenu} 
+          setWidthElements={setWidthElements}/> 
       }
     })
   }, nav)
 
+  const ActiveSubmenu = (item = null) => {
+    if(item === null) {
+      setActiveBurgerMenu(!activeBurgerMenu)
+      setNav(nav.map(item => { return { ...item, exact: false } }))
+    } else {
+      if(item.children)  {
+        setActiveBurgerMenu(false)
+        setNav( nav.map( link => isEqual(link, item) ? {...link, exact: !link.exact} : link ))
+      }
+    }
+  }
+
   const Burger = useMemo(() => {
     if(nav.length != dataLength) {
-      return <BurgerMenu  nav={nav} /> 
+      return <BurgerMenu 
+        nav={nav} 
+        activeBurgerMenu={activeBurgerMenu} 
+        ActiveSubmenu={ActiveSubmenu}
+      /> 
     }
   }, nav)
 

@@ -1,10 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, {useMemo} from 'react';
 import {Icon} from '@shopify/polaris';
 import style from './BurgerMenu.module.css'
 
-const BurgerMenu = ({nav}) => {
-
-  const [active, setActive] = useState(false);
+const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu}) => {
 
   const BurgerSubmenuLinks = (item) => {
     return (
@@ -40,9 +38,9 @@ const BurgerMenu = ({nav}) => {
   }, [nav])
 
   return (
-      <li onClick={() => setActive(!active)}>
+      <li onClick={() => ActiveSubmenu()}>
         <a>more ...</a>
-        <ul style={{width:200}} className={`${style.burgerMenu} ${active ? style.active : style.noActive}`}> 
+        <ul style={{width:200}} className={`${style.burgerMenu} ${activeBurgerMenu ? style.active : style.noActive}`}> 
           {BurgerLinks}
         </ul>
       </li>
