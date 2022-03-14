@@ -8,8 +8,6 @@ import LeftNav from './Components/LeftNav';
 
 
 const App = () => {
-  
-
   return (
     <AppProvider i18n={enTranslations}>
       <Frame 

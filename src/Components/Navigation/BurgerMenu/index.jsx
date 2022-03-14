@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import {Icon} from '@shopify/polaris';
 import style from './BurgerMenu.module.css'
 
-const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu}) => {
+const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu, widthBurger}) => {
 
   const BurgerSubmenuLinks = (item) => {
     return (
@@ -38,9 +38,9 @@ const BurgerMenu = ({nav, activeBurgerMenu, ActiveSubmenu}) => {
   }, [nav])
 
   return (
-      <li onClick={() => ActiveSubmenu()}>
+      <li className={activeBurgerMenu ? style.activeLink : ''} onClick={() => ActiveSubmenu()} >
         <a>more ...</a>
-        <ul style={{width:200}} className={`${style.burgerMenu} ${activeBurgerMenu ? style.active : style.noActive}`}> 
+        <ul style={{width: widthBurger}} className={`${style.burgerMenu} ${activeBurgerMenu ? style.active : style.noActive}`}> 
           {BurgerLinks}
         </ul>
       </li>

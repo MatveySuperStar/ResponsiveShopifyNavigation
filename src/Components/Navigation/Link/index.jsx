@@ -2,12 +2,17 @@ import React, {useEffect, useMemo, useRef} from 'react'
 import {Icon} from '@shopify/polaris'
 import style from './Link.module.css'
 
-const Link = ({item, ActiveSubmenu, setWidthElements}) => {
+const Link = ({item, ActiveSubmenu, setWidthElements, setWidthSubmenu}) => {
   
-  const width = useRef()
+  const link = useRef()
+  const submenu = useRef()
 
   useEffect(()=>{ 
-    setWidthElements(state => [...state, width.current.clientWidth])
+    setWidthElements(state => [...state, link.current.clientWidth])
+
+    if(submenu.current != undefined) {
+      setWidthSubmenu(state => [...state, submenu.current.clientWidth])
+    }
   },[])
   
   const SubmenuLinks = (item) => {
@@ -22,7 +27,7 @@ const Link = ({item, ActiveSubmenu, setWidthElements}) => {
 
     if(item.children) {   
       return (
-        <ul className={`${style.submenu} ${item.exact ? style.activeSubmenu : style.noActiveSubmenu}`}>
+        <ul ref={submenu} className={`${style.submenu} ${item.exact ? style.activeSubmenu : style.noActiveSubmenu}`}>
           {SubmenuLinks(item)}
         </ul>   
       )
@@ -30,7 +35,7 @@ const Link = ({item, ActiveSubmenu, setWidthElements}) => {
   }, [item.exact])
 
   return (
-    <li ref={width} className={item.exact ? style.activeLink : ''} style={{display: item.visible ? 'block' : 'none'}} 
+    <li ref={link} className={item.exact ? style.activeLink : ''} style={{display: item.visible ? 'block' : 'none'}} 
     onClick={() => ActiveSubmenu(item)}> 
       <a> <Icon source={item.icon}/> {item.label}</a>
       {Submenu}
