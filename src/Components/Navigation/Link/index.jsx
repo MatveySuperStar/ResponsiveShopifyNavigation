@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import {Icon} from '@shopify/polaris';
 
-const LinkNav = ({item, setWidthElements}) => {
+const Link = ({item, setWidthElements}) => {
   
   const width = useRef()
   const [active, setActive] = useState(false);
@@ -37,4 +37,4 @@ const LinkNav = ({item, setWidthElements}) => {
   );
 };
 
-export default LinkNav;
+export default Link;

@@ -1,13 +1,14 @@
 import React, {useState, useCallback, useRef, useEffect, useMemo} from 'react';
 import {Card} from '@shopify/polaris';
 import {data} from './data';
-import {useElementWidth} from './useElementWidth';
-import LinkNav from './LinkNav';
+import {useElementWidth} from '../../utils/customHuks/useElementWidth';
+import Link from './Link';
 import './Nav.css'
 import BurgerMenu from './BurgerMenu';
-import isEqual from './functions';
+import isEqual from '../../utils/functions';
+import style from './Navbar.module.css'
 
-const Nav = () => {
+const Navigation = () => {
   const [nav, setNav] = useState(data)
   const [widthElements, setWidthElements] = useState([])
   const leftNav = useRef()
@@ -27,10 +28,10 @@ const Nav = () => {
     }
   } , [wrapperWidth, nav])
 
-  const Link = useCallback( position => {
+  const Links = useCallback( position => {
     return nav.map( (item, index) => {
       if( item.position === position ) {
-        return <LinkNav key={index} item={item} setWidthElements={setWidthElements}/> 
+        return <Link key={index} item={item} setWidthElements={setWidthElements}/> 
       }
     })
   }, nav)
@@ -43,13 +44,13 @@ const Nav = () => {
 
   return (
     <Card>
-      <nav ref={wrapperNavbar}  className='navbar' >
+      <nav ref={wrapperNavbar}  className={style.navbar} >
         <ul ref={leftNav} className='navbar-nav left'>
-          {Link('left')}
+          {Links('left')}
         </ul>
         <div className='wrapper-nav-right'>      
           <ul ref={rightNav}  className='navbar-nav right'>
-            {Link('right')}
+            {Links('right')}
             {Burger}
           </ul>
         </div>
@@ -58,4 +59,4 @@ const Nav = () => {
   );
 }
 
-export default Nav
+export default Navigation
