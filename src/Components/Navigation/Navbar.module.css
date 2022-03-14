@@ -3,3 +3,53 @@
   height: 48px;
   width: 100%;
 }
+
+.left {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  width: 100%; 
+}
+
+.wrapperRight {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.right {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+  width: auto;
+  margin-left: auto;
+}
+
+.left > li, .right > li {
+  display: block;
+  position: relative;
+}
+
+.left > li > a, .right > li > a {
+  display: flex;
+  height: 100%;
+  width: fit-content;
+  white-space: nowrap;
+  align-items: center;
+  padding: 0 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.left > li > a > span, .right > li > a > span {
+  margin: 0 5px 0 0;
+}
+
+.left > li:hover, .right > li:hover {
+  border-bottom: 1px solid green;
+  margin-bottom: -1px;
+}

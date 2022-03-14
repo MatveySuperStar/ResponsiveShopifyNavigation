@@ -3,7 +3,6 @@ import {Card} from '@shopify/polaris';
 import {data} from './data';
 import {useElementWidth} from '../../utils/customHuks/useElementWidth';
 import Link from './Link';
-import './Nav.css'
 import BurgerMenu from './BurgerMenu';
 import isEqual from '../../utils/functions';
 import style from './Navbar.module.css'
@@ -45,11 +44,11 @@ const Navigation = () => {
   return (
     <Card>
       <nav ref={wrapperNavbar}  className={style.navbar} >
-        <ul ref={leftNav} className='navbar-nav left'>
+        <ul ref={leftNav} className={style.left}>
           {Links('left')}
         </ul>
-        <div className='wrapper-nav-right'>      
-          <ul ref={rightNav}  className='navbar-nav right'>
+        <div className={style.wrapperRight}>      
+          <ul ref={rightNav}  className={style.right}>
             {Links('right')}
             {Burger}
           </ul>

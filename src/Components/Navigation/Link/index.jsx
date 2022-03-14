@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import {Icon} from '@shopify/polaris';
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import {Icon} from '@shopify/polaris'
+import style from './Link.module.css'
 
 const Link = ({item, setWidthElements}) => {
   
@@ -21,7 +22,7 @@ const Link = ({item, setWidthElements}) => {
   const Submenu = useMemo(() => {
     if(item.children) {   
       return (
-        <ul className={`submenu ${active ? 'active' : ''}`}>
+        <ul className={`${style.submenu} ${active ? style.active : style.noActive}`}>
           {SubmenuLinks(item)}
         </ul>   
       )

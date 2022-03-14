@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import {Icon} from '@shopify/polaris';
+import style from './BurgerMenu.module.css'
 
 const BurgerMenu = ({nav}) => {
 
@@ -18,7 +19,7 @@ const BurgerMenu = ({nav}) => {
   const BurgerSubmenu = (item) => {
     if(item.children) {
       return ( 
-        <ul className='burger-menu_submenu'>
+        <ul className={style.submenu}>
           {BurgerSubmenuLinks(item)}
         </ul>
       )
@@ -41,7 +42,7 @@ const BurgerMenu = ({nav}) => {
   return (
       <li onClick={() => setActive(!active)}>
         <a>more ...</a>
-        <ul style={{width:200}} className={`burger-menu ${active ? 'active' : ''}`}> 
+        <ul style={{width:200}} className={`${style.burgerMenu} ${active ? style.active : style.noActive}`}> 
           {BurgerLinks}
         </ul>
       </li>
