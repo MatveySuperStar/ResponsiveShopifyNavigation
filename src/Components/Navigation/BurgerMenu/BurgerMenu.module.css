@@ -1,6 +1,5 @@
 .burgerMenu {
   right: 0;
-  flex-direction: column;
   margin-top: 3px ;
   padding: 0px 0px;
   position: absolute;
@@ -23,7 +22,6 @@
 
 .submenu {
   margin-top: 3px;
-  flex-direction: column;
   padding: 0px 0px;
   background-color: white;
   list-style: none;
@@ -34,19 +32,13 @@
 }
 
 .submenu > li > a {
-  width: 100%;
   display: flex;
   padding: 10px 5px;
   white-space: nowrap;
   cursor: pointer;
 }
 
-.submenu > li:hover a{
-  border-bottom: 3px solid green;
-  margin-bottom: -3px;
-}
-
-.activeLink {
+.submenu > li:hover a, .activeLink{
   border-bottom: 3px solid green;
   margin-bottom: -3px;
 }
