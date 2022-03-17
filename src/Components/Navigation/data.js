@@ -57,7 +57,6 @@ export  const data = [
     exact: false,
     icon: VocabularyMajor,
     position: 'left',
-    width: 0,  
     visible: true
   },
   {
@@ -66,7 +65,6 @@ export  const data = [
     exact: false,
     icon: CustomersMajor,
     position: 'left',
-    width: 0, 
     visible: true 
   },
   {
