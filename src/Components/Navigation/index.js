@@ -1,5 +1,7 @@
 import React, {useState, useCallback, useRef, useEffect, useMemo} from 'react';
-import {Card} from '@shopify/polaris';
+import enTranslations from '@shopify/polaris/locales/en.json';
+import '@shopify/polaris/build/esm/styles.css';
+import {AppProvider, Card} from '@shopify/polaris';
 import {data} from './data';
 import {useElementWidth} from '../../utils/customHuks/useElementWidth';
 import Link from './Link';
@@ -64,19 +66,21 @@ const Navigation = () => {
   }, nav)
 
   return (
-    <Card>
-      <nav ref={wrapperNavbar}  className={style.navbar} >
-        <ul ref={leftNav} className={style.left}>
-          {Links('left')}
-        </ul>
-        <div className={style.wrapperRight}>      
-          <ul ref={rightNav}  className={style.right}>
-            {Links('right')}
-            {Burger}
+    <AppProvider i18n={enTranslations}>
+      <Card>
+        <nav ref={wrapperNavbar}  className={style.navbar} >
+          <ul ref={leftNav} className={style.left}>
+            {Links('left')}
           </ul>
-        </div>
-      </nav>
-    </Card>
+          <div className={style.wrapperRight}>      
+            <ul ref={rightNav}  className={style.right}>
+              {Links('right')}
+              {Burger}
+            </ul>
+          </div>
+        </nav>
+      </Card>
+    </AppProvider>
   );
 }
 
