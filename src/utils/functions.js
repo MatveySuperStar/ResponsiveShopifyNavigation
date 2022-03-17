@@ -9,11 +9,11 @@ function isEqual(a, b) {
       return false;
   }
 
-  var propertiesInA = 0, propertiesInB = 0;
-  for (var property in a) {
+  let propertiesInA = 0, propertiesInB = 0;
+  for (const property in a) {
       propertiesInA += 1;
   }
-  for (var property in b) {
+  for (const property in b) {
       propertiesInB += 1;
       if (!(property in a) || !isEqual(a[property], b[property])) {
           return false;        
