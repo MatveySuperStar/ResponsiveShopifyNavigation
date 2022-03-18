@@ -9,6 +9,10 @@
   margin: 0;
 }
 
+.right {
+  flex-direction: row-reverse
+}
+
 .wrapperRight {
   display: flex;
   width: 100%;

@@ -21,7 +21,7 @@ const Navigation = () => {
   useEffect(() => {    
     const navBar = leftNav.current.clientWidth + rightNav.current.clientWidth;
 
-   if(navBar  > wrapperWidth && dataLength != 0) {
+   if(navBar > wrapperWidth && dataLength != 0) {
       setNav( nav.map(item => isEqual(item, nav[dataLength]) ? {...item, visible: false} : item))
       setDataLenght(dataLength - 1)
     } else if(navBar + widthElements[dataLength] < wrapperWidth && nav.length != dataLength) {
@@ -74,8 +74,8 @@ const Navigation = () => {
           </ul>
           <div className={style.wrapperRight}>      
             <ul ref={rightNav}  className={style.right}>
-              {Links('right')}
               {Burger}
+              {Links('right')}
             </ul>
           </div>
         </nav>

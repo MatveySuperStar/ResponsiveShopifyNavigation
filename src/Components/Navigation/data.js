@@ -87,6 +87,14 @@ export  const data = [
     label: "",
     path: "/analytics",
     exact: false,
+    icon: NotificationMajor,
+    position: 'right',
+    visible: true 
+  },
+  {
+    label: "",
+    path: "/analytics",
+    exact: false,
     icon: FavoriteMajor,
     position: 'right',
     visible: true
@@ -98,13 +106,5 @@ export  const data = [
     icon: QuestionMarkMajor,
     position: 'right', 
     visible: true
-  },
-  {
-    label: "",
-    path: "/analytics",
-    exact: false,
-    icon: NotificationMajor,
-    position: 'right',
-    visible: true 
   },
 ]
