@@ -12,13 +12,13 @@ export  const data = [
     children: [
       {
         label: "Glossary",
-        path: "/analytics",
+        path: "/glossary",
         exact: false,
         icon: VocabularyMajor
       },
       {
         label: "Agency translation",
-        path: "/analytics",
+        path: "/Agency translation",
         exact: false,
         icon: VocabularyMajor
       },
@@ -26,6 +26,7 @@ export  const data = [
   }, 
   {
     label: "Translations",
+    path: "/analytics",
     exact: false,
     icon: GlobeMajor,
     position: 'left',
@@ -45,7 +46,7 @@ export  const data = [
       },
       {
         label: "Agency translationadasdadasdadas",
-        path: "/analytics",
+        path: "/Agency",
         exact: false,
         icon: VocabularyMajor
       },
@@ -53,7 +54,7 @@ export  const data = [
   },
   {
     label: "Glossary",
-    path: "/analytics",
+    path: "/Glossary",
     exact: false,
     icon: VocabularyMajor,
     position: 'left',
@@ -61,7 +62,7 @@ export  const data = [
   },
   {
     label: "Agency translation",
-    path: "/analytics",
+    path: "/Agency translation",
     exact: false,
     icon: CustomersMajor,
     position: 'left',
@@ -69,7 +70,7 @@ export  const data = [
   },
   {
     label: "Integrations",
-    path: "/analytics",
+    path: "/Integrations",
     exact: false,
     icon: AppsMajor,
     position: 'left',
@@ -77,7 +78,7 @@ export  const data = [
   },
   {
     label: "Settings",
-    path: "/analytics",
+    path: "/Settings",
     exact: false,
     icon: SettingsMajor,
     position: 'left',
@@ -101,7 +102,7 @@ export  const data = [
   },
   {
     label: "",
-    path: "/analytics",
+    path: "/analyticsц",
     exact: false,
     icon: QuestionMarkMajor,
     position: 'right', 

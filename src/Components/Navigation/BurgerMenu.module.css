@@ -1,4 +1,5 @@
 .burgerMenu {
+  display: none;
   right: 0;
   margin-top: 3px ;
   padding: 0px 0px;
@@ -8,16 +9,26 @@
   list-style: none; 
 }
 
-.burgerMenu > li > a {
-  cursor: pointer; 
-  display: flex;
-  padding: 10px 5px;
-  word-wrap:initial;
+li:hover .burgerMenu{
+ display: block;
 }
 
-.burgerMenu > li:hover > a {
-  border-bottom: 3px solid green;
-  margin-bottom: -3px;
+.burgerMenu > li > a {
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px 10px 5px;
+  cursor: pointer;
+  border-bottom: 0.1px solid;
+}
+
+.burgerMenu > li:hover > a, .submenu > li:hover > a{
+  background-color: rgba(95, 95, 95, 0.1)
+}
+
+.burgerMenu > li:hover > a > span:last-child, .submenu > li:hover > a > span:last-child  {
+  border-bottom: 2px solid green;
+  margin-bottom: -2px;
 }
 
 .submenu {
@@ -27,26 +38,8 @@
   list-style: none;
 }
 
-.submenu > li {
-  padding-left: 10px;
-}
-
 .submenu > li > a {
   display: flex;
   padding: 10px 5px;
-  white-space: nowrap;
   cursor: pointer;
-}
-
-.submenu > li:hover a, .activeLink{
-  border-bottom: 3px solid green;
-  margin-bottom: -3px;
-}
-
-.active {
-  display: block;
-}
-
-.noActive {
-  display: none;
 }
