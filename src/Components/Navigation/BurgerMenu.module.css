@@ -1,4 +1,5 @@
 .burgerMenu {
+  min-width: 150px;
   display: none;
   right: 0;
   margin-top: 3px ;
@@ -14,7 +15,6 @@ li:hover .burgerMenu{
 }
 
 .burgerMenu > li > a {
-  min-width: 150px;
   display: flex;
   align-items: center;
   padding: 10px 15px 10px 5px;
