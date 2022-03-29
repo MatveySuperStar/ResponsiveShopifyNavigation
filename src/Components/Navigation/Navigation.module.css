@@ -1,6 +1,7 @@
 .navbar {
   display: flex;
   height: 48px;
+  background-color: #f6f6f7;
 }
 
 .left, .right {
@@ -24,22 +25,24 @@
   position: relative;
 }
 
-.left > li > a, .right > li > a {
+.left a, .right a {
+  width: 100%;
+  cursor: pointer;
+}
+
+.left > li > a > div, .right> li > a > div{
   display: flex;
   height: 100%;
   white-space: nowrap;
   align-items: center;
-  padding: 0 20px;
+  margin: 0 20px;
   font-size: 14px;
-  cursor: pointer;
 }
 
-.left span, .right span {
-  margin: 0 5px 0 0;
+.left span {
+  margin: 0 10px 0 0;
 }
 
-.left>li:hover, .right>li:hover {
-  border-bottom: 3px solid green;
-  margin-bottom: -3px;
+.left > li:hover, .right > li:hover{
+  background-color: white;
 }
-

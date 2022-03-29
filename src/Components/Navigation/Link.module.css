@@ -5,28 +5,55 @@ li:hover .submenu{
 .submenu {
   min-width: 150px;
   display: none;
-  margin-top: 3px;
-  padding: 0px 0px;
+  padding: 20px 20px 20px 0;
   position: absolute;
   background-color: white;
+  box-shadow:  0 0 5px rgba(23, 24, 24, 0.05), 0 1px 2px rgba(0, 0, 0, 0.15);
   z-index: 10;
   list-style: none;
 }
 
-.submenu > li > a {
+.submenu > li > a{
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 10px 15px 10px 5px;
+  white-space: nowrap;
+  margin-left: 10px;
+  padding: 10px;
   cursor: pointer;
-  border-bottom: 0.1px solid;
+}
+
+.submenu > li > a > span:first-child{
+  margin: 0 20px 0 0;
+}
+
+.submenu > li:hover{
+  color: #008060;
+  fill: #008060;
+  border-left: 4px solid #008060;
 }
 
 .submenu > li:hover > a{
-  background-color: rgba(95, 95, 95, 0.1)
+  background-color: #f6f6f7;
+  margin-left: 6px;
 }
 
-.submenu > li:hover > a > span:last-child{
-  border-bottom: 2px solid green;
-  margin-bottom: -2px;
+li.activeLink {
+  padding-top: 4px;
 }
+
+li.activeLink > a > div{
+  color: #008060;
+  border-bottom: 4px solid #008060;
+}
+
+li.activeSubLink {
+  color: #008060;
+  fill: #008060;
+  border-left: 4px solid #008060;
+}
+
+li.activeSubLink > a{
+  margin-left: 6px;
+}
+

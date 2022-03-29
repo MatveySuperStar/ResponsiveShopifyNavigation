@@ -1,28 +1,23 @@
 import React, {useEffect, useMemo, useRef} from 'react'
 import {Icon} from '@shopify/polaris'
 import style from './Link.module.css'
-import { useHistory } from 'react-router';
 
-const Link = ({item, setWidthElements, setHistory}) => {
-  
+const Link = ({item, nav, setHistory, setWidthElements, badge}) => {
+
   const linkRef = useRef()
   const submenuRef = useRef()
-  const history = useHistory()
-
-  function setHistory(e, path) {
-    e.stopPropagation();
-    history.push(path)
-  }
 
   useEffect(()=>{ 
     setWidthElements(state => [...state, linkRef.current.clientWidth])
   },[])
-  
+
   const submenuLinks = (item) => {
     return item.children.map( (subitem, index) => 
-      <li key={index} onClick={(e) =>  setHistory(e, subitem.path)}> 
-        <a>
-          <Icon source={subitem.icon}/> <span>{subitem.label}</span>
+      <li key={index} className={subitem.exact ? style.activeSubLink : style.noActive}> 
+        <a onClick={() => setHistory(subitem.path, item, subitem)}>
+          <Icon source={subitem.icon}/> 
+          {subitem.label}
+          {!subitem.badge || badge(subitem.badge)}
         </a>
       </li> 
     )
@@ -36,13 +31,16 @@ const Link = ({item, setWidthElements, setHistory}) => {
         </ul>   
       )
     }
-  }, [])
+  }, [nav])
 
   return (
-    <li ref={linkRef} style={{display: item.visible ? 'block' : 'none'}}  
-      onClick={(e) => setHistory(e, item.path)}> 
-      <a> 
-        <Icon source={item.icon}/> {item.label}
+    <li ref={linkRef} className={item.exact ? style.activeLink : style.noActive} style={{display: item.visible ? 'block' : 'none'}}> 
+      <a onClick={() => setHistory(item.path, item)}> 
+        <div>
+          <Icon source={item.icon}/> 
+          {item.label}
+          {!item.badge || badge(item.badge)}
+        </div>
       </a>
       {submenu}
     </li>

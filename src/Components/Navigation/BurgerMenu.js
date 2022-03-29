@@ -1,24 +1,18 @@
 import React, {useMemo} from 'react';
 import {Icon} from '@shopify/polaris';
-import { useHistory } from 'react-router';
 import style from './BurgerMenu.module.css'
 
-const BurgerMenu = ({nav}) => {
-  
-  const history = useHistory()
-
-  function setHistory(e, path) {
-    e.stopPropagation()
-    history.push(path)
-  }
+const BurgerMenu = ({nav, setHistory, badge}) => {
 
   const burgerSubmenuLinks = (item) => {
     return (
       item.children.map( (subitem, index) => {
         return (
-          <li key={index} onClick={(e) => setHistory(e, subitem.path)}> 
-            <a>
-              <Icon source={subitem.icon}/><span>{subitem.label}</span>
+          <li key={index} className={subitem.exact ? style.activeBurgerSubLink : style.noActive}> 
+            <a onClick={() => setHistory(subitem.path, item, subitem)} >
+              <Icon source={subitem.icon}/>
+              {subitem.label}
+              {!subitem.badge || badge(subitem.badge)}
             </a>
           </li>
         )  
@@ -40,10 +34,14 @@ const BurgerMenu = ({nav}) => {
     return nav.map( (item, index) =>  {
       if(!item.visible) { 
         return (
-          <li key={index} onClick={(e) => setHistory(e, item.path)}> 
-            <a> 
-              <Icon source={item.icon}/> <span>{item.label}</span>
-            </a>
+          <li key={index} className={item.exact ? style.activeBurgerLink : style.noActive}> 
+            <div>
+              <a onClick={() => setHistory(item.path, item)}> 
+                <Icon source={item.icon}/> 
+                {item.label}
+                {!item.badge || badge(item.badge)} 
+              </a>
+            </div>  
             {burgerSubmenu(item)}
           </li>
         )
@@ -52,8 +50,10 @@ const BurgerMenu = ({nav}) => {
   }, [nav])
 
   return (
-      <li>
-        <a>more ...</a>
+      <li className={nav.find( link => !link.visible && link.exact) ? style.activeLink : style.noActive}>
+          <a>
+            <div>more ...</div>
+          </a>
         <ul className={`${style.burgerMenu}`}> 
           {burgerLinks}
         </ul>
