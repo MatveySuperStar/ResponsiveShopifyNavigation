@@ -15,6 +15,7 @@ li:hover .burgerMenu{
 }
 
 .burgerMenu li a {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
@@ -28,15 +29,19 @@ li:hover .burgerMenu{
   margin: 0 20px 0 0;
 }
 
-.burgerMenu > li:hover > div, .submenu > li:hover, li.activeBurgerLink > div, li.activeBurgerSubLink{
+.burgerMenu > li:hover > div > a::before, .submenu > li:hover > a::before, li.activeBurgerLink > div > a::before, li.activeBurgerSubLink > a::before{
+  content: "";
+  position: absolute;
   color: #008060;
   fill: #008060;
-  border-left: 4px solid #008060;
+  background: #008060;
+  left: -10px;
+  width: 4px;
+  height: calc(100% - 15px);
 }
 
-.burgerMenu > li:hover > div > a, .submenu > li:hover > a, li.activeBurgerLink > div > a, li.activeBurgerSubLink > a{
+.burgerMenu > li:hover > div > a{
   background-color: #f6f6f7;
-  margin-left: 6px;
 }
 
 .submenu {
