@@ -31,11 +31,14 @@ li:hover .submenu{
   position: relative;
 }
 
+.submenu > li:hover > a > span, li.activeSubLink > a > span{
+  color: #008060;
+  fill: #008060;
+}
+
 .submenu > li:hover > a::before, li.activeSubLink > a::before {
   content: "";
   position: absolute;
-  color: #008060;
-  fill: #008060;
   background: #008060;
   left: 0px;
   width: 4px;
@@ -46,13 +49,15 @@ li:hover .submenu{
   background-color: #f6f6f7;
 }
 
-li.activeLink {
-  padding-top: 4px;
-}
-
-li.activeLink > a > div{
+li.activeLink > a > div > span{
   color: #008060;
-  border-bottom: 4px solid #008060;
 }
 
-
+li.activeLink > a::after{
+  content: "";
+  position: absolute;
+  background: #008060;
+  width: calc(100% - 40px);
+  height: 4px;
+  margin: -4px 0 0 20px;
+}

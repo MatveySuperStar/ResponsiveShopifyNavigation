@@ -16,7 +16,7 @@ const Link = ({item, nav, setHistory, setWidthElements, badge}) => {
       <li key={index} className={subitem.exact ? style.activeSubLink : style.noActive}> 
         <a onClick={() => setHistory(subitem.path, item, subitem)}>
           <Icon source={subitem.icon}/> 
-          {subitem.label}
+          <span>{subitem.label}</span>
           {!subitem.badge || badge(subitem.badge)}
         </a>
       </li> 
@@ -38,7 +38,7 @@ const Link = ({item, nav, setHistory, setWidthElements, badge}) => {
       <a onClick={() => setHistory(item.path, item)}> 
         <div>
           <Icon source={item.icon}/> 
-          {item.label}
+          <span>{item.label}</span>
           {!item.badge || badge(item.badge)}
         </div>
       </a>

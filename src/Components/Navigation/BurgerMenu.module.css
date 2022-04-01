@@ -29,11 +29,20 @@ li:hover .burgerMenu{
   margin: 0 20px 0 0;
 }
 
-.burgerMenu > li:hover > div > a::before, .submenu > li:hover > a::before, li.activeBurgerLink > div > a::before, li.activeBurgerSubLink > a::before{
-  content: "";
-  position: absolute;
+.burgerMenu > li:hover > div > a > span,
+.submenu > li:hover > a > span, 
+li.activeBurgerLink > div > a > span,  
+li.activeBurgerSubLink > a > span{
   color: #008060;
   fill: #008060;
+}
+
+.burgerMenu > li:hover > div > a::before, 
+.submenu > li:hover > a::before, 
+li.activeBurgerLink > div > a::before, 
+li.activeBurgerSubLink > a::before {
+  content: "";
+  position: absolute;
   background: #008060;
   left: -10px;
   width: 4px;
@@ -55,11 +64,19 @@ li:hover .burgerMenu{
   margin-left: 10px;
 }
 
-li.activeLink{
-  padding-top: 4px;
+.submenu li:hover > a {
+  background-color: #f6f6f7;
 }
 
 li.activeLink > a > div{
   color: #008060;
-  border-bottom: 4px solid #008060;
+}
+
+li.activeLink > a::after{
+  content: "";
+  position: absolute;
+  background: #008060;
+  width: calc(100% - 40px);
+  height: 4px;
+  margin: -4px 0 0 20px;
 }

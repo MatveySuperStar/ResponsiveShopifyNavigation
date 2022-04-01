@@ -11,7 +11,7 @@ const BurgerMenu = ({nav, setHistory, badge}) => {
           <li key={index} className={subitem.exact ? style.activeBurgerSubLink : style.noActive}> 
             <a onClick={() => setHistory(subitem.path, item, subitem)} >
               <Icon source={subitem.icon}/>
-              {subitem.label}
+              <span>{subitem.label}</span>
               {!subitem.badge || badge(subitem.badge)}
             </a>
           </li>
@@ -38,7 +38,7 @@ const BurgerMenu = ({nav, setHistory, badge}) => {
             <div>
               <a onClick={() => setHistory(item.path, item)}> 
                 <Icon source={item.icon}/> 
-                {item.label}
+                <span>{item.label}</span>
                 {!item.badge || badge(item.badge)} 
               </a>
             </div>  
